@@ -1,0 +1,13 @@
+type = theme
+name = minicss
+description = The basic theme built with <b>mini.css ver.3.0.0</b> - minimal, responsive, style-agnostic CSS framework.
+backdrop = 1.x
+screenshot = screenshot.png
+version = 1.0.1
+
+; Default settings for theme features.
+settings[top_right] = main-menu
+settings[flavor] = default
+settings[sticky_header] = 0
+settings[sticky_footer] = 0
+settings[theme_debug] = true

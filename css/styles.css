@@ -1,0 +1,301 @@
+body {
+  margin: 0;
+}
+.layout {
+  margin: 0;
+}
+
+/* Some classes from system.css */
+.element-hidden {
+  display: none;
+}
+
+.element-invisible {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+}
+
+.element-invisible.element-focusable:active,
+.element-invisible.element-focusable:focus {
+  position: static !important;
+  clip: auto;
+  overflow: visible;
+  height: auto;
+}
+
+/* Admin bar override */
+#admin-bar {
+  z-index: 1105;
+}
+#admin-bar,
+#admin-bar .dropdown li > span,
+#admin-bar a {
+  font: normal 11px "Lucida Grande", Verdana, sans-serif;
+}
+#admin-bar .top-level .admin-bar-search .form-item {
+  padding: 4px 0 0;
+}
+#admin-bar .admin-bar-search input {
+  line-height: 1.15;  
+}
+
+/* Header elements */
+a.logo img {
+  max-height: 3.1rem;
+  width: auto;
+}
+
+.site-details {
+  padding-top: 0.5rem;
+}
+
+/* Main menu */
+.drawer-box {
+  float: right;
+}
+
+nav.main {
+  border: none;
+  margin-top: 3.2rem;
+}
+
+nav.main ul.menu,
+nav.main ul.menu li ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0;  
+}
+
+nav.main ul.menu li {
+  text-align: left;
+  padding: 0;
+}
+
+body.logged-in .drawer-box div {
+  margin-top: 33px;
+}
+
+/* Primary tabs */
+nav.tabs {
+  margin: 0;
+  border: 0;
+}
+
+nav.tabs:after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+ul.primary {
+  position: relative;
+  clear: both;
+  box-sizing: border-box;
+  border: none;
+  width: 100%;
+  float: left;
+  margin: 0 0 1em;
+  padding: 0 0 0 0.5em;
+  border-bottom: 1px solid #ccc;
+}
+ul.primary li {
+  position: relative;
+  z-index: 1;
+  float: left;
+  margin: 0 0 -1px;
+  list-style: none;
+  padding: 0.5em 0.25em 0 0.25em;
+}
+ul.primary li:first-child {
+  padding-left: 0;
+}
+
+ul.primary li a {
+  border-style: solid;
+  border-color: #ccc;
+  border-width: 1px;
+  border-radius: 3px 3px 0 0;
+  background-color: #f0f0f0;
+  padding: 0.5em 1em;
+}
+ul.primary li.active a {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid #f8f8f8;
+}
+
+ul.primary li a:hover:not(.active) {
+  background-color: #ccc;
+}
+
+/* Breadcrumbs */
+nav.breadcrumb {
+  padding-left: 0.25em;
+}
+
+.breadcrumb {
+  border: none;
+  padding-bottom: 0;
+  overflow: hidden;
+  margin: 1em 0;
+}
+
+.breadcrumb ol,
+.breadcrumb li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb li {
+  position: relative;
+  padding: 0 1em;
+  float: left;
+}
+
+.breadcrumb li a,
+.breadcrumb li span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 0 -1em;
+  text-decoration: none;
+}
+.breadcrumb li a {
+  padding: 0.5em 1.4em 0.5em 0.2em;
+}
+.breadcrumb li span {
+  padding: 0.5em 0 0.5em 0.5em;
+}
+.breadcrumb li span.divider {
+  padding-left: 1em;
+}
+.breadcrumb li:last-child {
+  padding-left: 0.5em;
+}
+
+.l-sidebar-first .block {
+  padding-left: 1rem;
+}
+
+article footer .user-picture {
+  float: right;
+  margin: 0.5rem -0.5rem 0.5rem 0.5rem;
+}
+
+article .content {
+  margin-bottom: 1rem;
+}
+
+article.comment {
+  border-style: solid;
+  border-color: #1565c0;
+  border-width: 0 0 1px 4px;
+  padding-bottom: 0.5rem;
+}
+article.comment footer {
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top-color: #1565c0;
+  font-style: italic;
+}
+article.comment footer p.submitted {
+  font-size: 0.85rem;
+}
+
+/* Links inline */
+ul.inline, 
+ul.links.inline {
+  display: inline;
+  padding-left: 0;
+  margin-left: 0;
+}
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 0.5em;
+}
+
+/* Comment form */
+.comment-form {
+  margin-left: 0;
+}
+.comments .form-item {
+  margin: 0.1em;
+}
+.comments label {
+  padding-left: 0;
+}
+.comments fieldset {
+  border: none;
+  padding: 0.5em 0 0.5em;
+}
+.comments .fieldset-title {
+  padding-left: 1.5em !important;
+}
+
+
+/* Forms */
+form abbr.form-required {
+  text-decoration: none;
+}
+
+form.contact-form label,
+form.user-login label,
+form.user-register-form label {
+  display: block;
+  font-weight: 700;  
+}
+
+form.user-login .description,
+form.user-register-form  .description {
+  padding-left: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+form input {
+  max-width: 98%;
+}
+
+/* Pager (from "seven" theme)*/
+.item-list .pager {
+  clear: both;
+  text-align: center;
+  margin: 1em 0;
+}
+.item-list .pager li {
+  background-image: none;
+  display: inline-block;
+  list-style-type: none;
+  margin: 0 3px;
+  padding: 0;
+}
+.item-list .pager li.pager-current {
+  display: inline-block;
+  background-color: #444b53;
+  font-weight: bold;
+  color: #ffffff;
+  min-width: 20px;
+  padding: 7px 10px;
+  border-radius: 4px;
+}
+.item-list .pager a {
+  display: inline-block;
+  background-color: #e5e5e6;
+  color: #444b53;
+  min-width: 20px;
+  padding: 7px 10px;
+  border-radius: 4px;
+}
+.item-list .pager a:hover {
+  text-decoration: none;
+  background-color: #444b53;
+  color: #ffffff;
+  transition: background-color 0.6s ease, color 0.6s ease;
+}
+
+footer.sticky {
+  z-index: 1100;
+}
