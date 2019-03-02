@@ -3,6 +3,9 @@ body {
 }
 .layout {
   margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;  
 }
 
 /* Some classes from system.css */
@@ -46,6 +49,7 @@ body {
 a.logo img {
   max-height: 3.1rem;
   width: auto;
+  max-width: 4.5rem;
 }
 
 .site-details {
@@ -85,6 +89,7 @@ nav.tabs {
   border: 0;
 }
 
+.clearfix:after,
 nav.tabs:after {
   content: '';
   clear: both;
@@ -257,6 +262,9 @@ form.user-register-form  .description {
 }
 form input {
   max-width: 98%;
+}
+form textarea {
+  max-width: 100%;
 }
 
 /* Pager (from "seven" theme)*/

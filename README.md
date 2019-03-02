@@ -10,16 +10,16 @@ Features
 - select one from a few pre-built color schemes (or "flavors") available out of the box;
 - ability to make your site's header and / or footer sticky;
 - select which one of menus will be used as main site navigation;
-- enable and disable theme debugging without need to use "devel" module.
+- enable and disable theme debugging without need to use "Devel" module.
 
 All features described above can be set on the theme settings page.
 
-This first public release can be used as "starter" theme for your own sub-theme 
+This theme can be used as "starter" theme for your own sub-theme 
 and present only minimally themed two layouts used in default Backdrop setup: 
-"Boxton" for home page and "Moscone Flipped" for internal pages, so may be 
+"Boxton" for home page and "Moscone Flipped" for internal pages, so it may be 
 extended for another layouts by adding your own new templates as need.
 
-File `css/custom.css` is intended for your styles tuning - you can edit this 
+File `css/custom.css` is intended for your styles tuning without subtheming - you can edit this 
 file as you need, but remember to backup this file in case of theme upgrade.
 
 Installation

@@ -25,7 +25,7 @@ function minicss_css_alter(&$css) {
     'every_page' => TRUE,
     'media' => 'all',
     'preprocess' => TRUE,
-    'group' => CSS_THEME,
+    'group' => CSS_DEFAULT,
     'browsers' => array('IE' => TRUE, '!IE' => TRUE),
     'weight' => -5,
   );
@@ -37,7 +37,7 @@ function minicss_css_alter(&$css) {
     'every_page' => TRUE,
     'media' => 'all',
     'preprocess' => TRUE,
-    'group' => CSS_THEME,
+    'group' => CSS_DEFAULT,
     'browsers' => array('IE' => TRUE, '!IE' => TRUE),
     'weight' => -3,
   );
@@ -49,7 +49,7 @@ function minicss_css_alter(&$css) {
     'every_page' => TRUE,
     'media' => 'all',
     'preprocess' => TRUE,
-    'group' => CSS_THEME,
+    'group' => CSS_DEFAULT,
     'browsers' => array('IE' => TRUE, '!IE' => TRUE),
     'weight' => -1,
   );
