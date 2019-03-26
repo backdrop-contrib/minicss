@@ -100,7 +100,8 @@ function minicss_breadcrumb($variables) {
  * Implements hook_preprocess_header().
  */
 function minicss_preprocess_header(&$variables) {
-  $selected = theme_get_setting('top_right', 'minicss');
+  $theme_default = config_get('system.core', 'theme_default');
+  $selected = theme_get_setting('top_right', $theme_default);
   $menu = menu_tree($selected);
   $tr_menu = backdrop_render($menu);
   $variables['tr_menu'] = $tr_menu;
@@ -118,6 +119,7 @@ function minicss_form_alter(&$form, &$form_state, $form_id) {
  * Implements hook_preprocess_layout().
  */
 function minicss_preprocess_layout(&$variables) {
-  $variables['sticky_header'] = theme_get_setting('sticky_header', 'minicss') ? ' sticky' : '';
-  $variables['sticky_footer'] = theme_get_setting('sticky_footer', 'minicss') ? ' sticky' : '';
+  $theme_default = config_get('system.core', 'theme_default');
+  $variables['sticky_header'] = theme_get_setting('sticky_header', $theme_default) ? ' sticky' : '';
+  $variables['sticky_footer'] = theme_get_setting('sticky_footer', $theme_default) ? ' sticky' : '';
 }

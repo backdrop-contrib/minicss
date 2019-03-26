@@ -3,7 +3,7 @@ name = minicss
 description = The basic theme built with <b>mini.css ver.3.0.0</b> - minimal, responsive, style-agnostic CSS framework.
 backdrop = 1.x
 screenshot = screenshot.png
-version = 1.0.2
+version = 1.0.3
 
 ; Default settings for theme features.
 settings[top_right] = main-menu
