@@ -17,14 +17,30 @@ function minicss_css_alter(&$css) {
   $css = array_diff_key($css, $exclude);
   
   // Add css files
-  $subset = theme_get_setting('flavor', 'minicss');
-  $flavor = backdrop_get_path('theme', 'minicss') . '/css/dist/mini-' . $subset . '.min.css';
+  $theme_default = config_get('system.core', 'theme_default');
+  $subset = theme_get_setting('flavor', $theme_default);
+  $cdn = theme_get_setting('cdn', $theme_default);
+  $min = theme_get_setting('minification', $theme_default) ? '.min' : '';
+  
+  if ($cdn) {
+    $cdn_base_url = htmlspecialchars(trim(theme_get_setting('cdn_base_url', 'minicss')));
+    $slash = substr($cdn_base_url, -1) != '/' ? '/' : '';
+    $flavor = $cdn_base_url . $slash . 'mini-' . $subset . $min . '.css';
+    $type = 'external';
+    $preprocess = FALSE;
+  }
+  else {
+    $flavor = backdrop_get_path('theme', 'minicss') . '/css/dist/mini-' . $subset . $min . '.css';
+    $type = 'file';
+    $preprocess = TRUE;
+  }
+  
   $css[$flavor] = array(
     'data' => $flavor,
-    'type' => 'file',
+    'type' => $type,
     'every_page' => TRUE,
     'media' => 'all',
-    'preprocess' => TRUE,
+    'preprocess' => $preprocess,
     'group' => CSS_DEFAULT,
     'browsers' => array('IE' => TRUE, '!IE' => TRUE),
     'weight' => -5,
@@ -83,6 +99,9 @@ function minicss_breadcrumb($variables) {
     return;
   }
   
+  $theme_default = config_get('system.core', 'theme_default');
+  $breadcrumbs_divider = _sanit_chars(trim(theme_get_setting('breadcrumbs_divider', $theme_default)));
+
   $breadcrumb = $variables['breadcrumb'];
   $output = '';
   if (!empty($breadcrumb)) {
@@ -90,12 +109,26 @@ function minicss_breadcrumb($variables) {
     // Provide a navigational heading to give context for breadcrumb links to
     // screen-reader users. Make the heading invisible with .element-invisible.
     $output .= '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-    $output .= '<ol><li>' . implode('<span class="divider"> » </span></li><li>', $breadcrumb) . '</li></ol>';
+    $output .= '<ol><li>' . implode('<span class="divider"> ' . $breadcrumbs_divider . ' </span></li><li>', $breadcrumb) . '</li></ol>';
     $output .= '</nav>';
   }
   return $output;
 }
 
+// Workaround for '&' in htmlspecialchars
+function _sanit_chars($string) {
+  $from = array('"', '\'', '<', '>', '/');
+  $to = array('&quot;', '&apos;', '&lt;', '&gt;', '');
+  return str_replace($from, $to, $string);  
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function minicss_preprocess_page(&$variables) {
+//dpm($variables);
+  
+}
 /**
  * Implements hook_preprocess_header().
  */
@@ -108,14 +141,6 @@ function minicss_preprocess_header(&$variables) {
 }
 
 /**
- * Implements hook_form_alter().
- */
-function minicss_form_alter(&$form, &$form_state, $form_id) {
-  // force using class 'primary' for any primary action button
-  $form['actions']['submit']['#attributes']['class'][] = 'primary';
-}
-
-/**
  * Implements hook_preprocess_layout().
  */
 function minicss_preprocess_layout(&$variables) {
@@ -123,3 +148,12 @@ function minicss_preprocess_layout(&$variables) {
   $variables['sticky_header'] = theme_get_setting('sticky_header', $theme_default) ? ' sticky' : '';
   $variables['sticky_footer'] = theme_get_setting('sticky_footer', $theme_default) ? ' sticky' : '';
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function minicss_form_alter(&$form, &$form_state, $form_id) {
+  // force using class 'primary' for any primary action button
+  $form['actions']['submit']['#attributes']['class'][] = 'primary';
+}
+

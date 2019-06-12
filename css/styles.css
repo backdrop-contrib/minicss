@@ -8,6 +8,10 @@ body {
   flex-direction: column;  
 }
 
+.l-wrapper {
+  margin-bottom: 66px;  
+}
+
 /* Some classes from system.css */
 .element-hidden {
   display: none;
@@ -32,6 +36,7 @@ body {
 /* Admin bar override */
 #admin-bar {
   z-index: 1105;
+  height: 33px;
 }
 #admin-bar,
 #admin-bar .dropdown li > span,
@@ -43,6 +48,19 @@ body {
 }
 #admin-bar .admin-bar-search input {
   line-height: 1.15;  
+}
+
+/* Displays the administration bar always at the top of the browser viewport, even it not set as default. */
+html.admin-bar #admin-bar {
+  position: fixed;
+}
+
+html.admin-bar .drawer-box div {
+  margin-top: 33px;
+}
+
+html.admin-bar header.sticky {
+  top: 33px;
 }
 
 /* Header elements */
@@ -77,10 +95,6 @@ nav.main ul.menu li ul {
 nav.main ul.menu li {
   text-align: left;
   padding: 0;
-}
-
-body.logged-in .drawer-box div {
-  margin-top: 33px;
 }
 
 /* Primary tabs */
@@ -173,7 +187,7 @@ nav.breadcrumb {
   padding: 0.5em 1.4em 0.5em 0.2em;
 }
 .breadcrumb li span {
-  padding: 0.5em 0 0.5em 0.5em;
+  padding: 0.5em;
 }
 .breadcrumb li span.divider {
   padding-left: 1em;
@@ -242,7 +256,6 @@ ul.inline li {
   padding-left: 1.5em !important;
 }
 
-
 /* Forms */
 form abbr.form-required {
   text-decoration: none;
@@ -306,4 +319,8 @@ form textarea {
 
 footer.sticky {
   z-index: 1100;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
